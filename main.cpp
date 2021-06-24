@@ -12,12 +12,19 @@ u_long persistence(u_long number, int count) {
 
   for (int i = 0; i < iters; i++) {
     u_long digit = number % 10;
+
     if (digit == 0) {
       return count + 1;
-    } else {
-      result *= digit;
-      number /= 10;
     }
+
+    if (count == 0 && i < iters - 2) {
+      if (digit != 7 && digit != 8 && digit != 9) {
+        return 0;
+      }
+    }
+
+    result *= digit;
+    number /= 10;
   }
 
   return persistence(result, count + 1);
@@ -25,7 +32,7 @@ u_long persistence(u_long number, int count) {
 
 int main() {
 
-  u_long record = 10;
+  u_long record = 1;
   u_long number = 277777788888899;
 
   while (true) {
@@ -37,6 +44,7 @@ int main() {
     }
 
     number++;
+    return 0;
   }
 
 }
