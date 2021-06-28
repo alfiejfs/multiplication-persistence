@@ -32,8 +32,8 @@ u_long persistence(u_long number, int count) {
 
 int main() {
 
-  u_long record = 1;
-  u_long number = 277777788888899;
+  u_long record = 0;
+  u_long number = 1;
 
   while (true) {
     int amount = persistence(number, 0);
@@ -44,7 +44,7 @@ int main() {
     }
 
     number++;
-    return 0;
   }
 
+    return 0;
 }
